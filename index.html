@@ -33,6 +33,17 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Touch-friendly improvements */
+        button, a, .cta-button, .contact-link {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        /* Prevent zoom on input focus on iOS */
+        input, textarea, select {
+            font-size: 16px;
         }
 
         /* Animated Background */
@@ -145,6 +156,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px; /* Compensar el header fijo */
         }
 
         .hero-content {
@@ -153,6 +165,7 @@
             gap: 4rem;
             align-items: center;
             width: 100%;
+            min-height: calc(100vh - 80px);
         }
 
         .hero-text h1 {
@@ -164,6 +177,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: glow 2s ease-in-out infinite alternate;
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
         @keyframes glow {
@@ -254,6 +269,10 @@
         .code-line:nth-child(3) { animation-delay: 1.5s; }
         .code-line:nth-child(4) { animation-delay: 2s; }
         .code-line:nth-child(5) { animation-delay: 2.5s; }
+        .code-line:nth-child(6) { animation-delay: 3s; }
+        .code-line:nth-child(7) { animation-delay: 3.5s; }
+        .code-line:nth-child(8) { animation-delay: 4s; }
+        .code-line:nth-child(9) { animation-delay: 4.5s; }
 
         @keyframes typewriter {
             to { opacity: 1; }
@@ -710,34 +729,326 @@
             color: var(--text-tertiary);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.2rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            /* Hero section mobile improvements */
+            .hero {
+                padding-top: 70px;
+                min-height: calc(100vh - 70px);
+                align-items: flex-start;
+                padding-bottom: 2rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+                align-items: center;
+                justify-items: center;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 2;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+                margin: 1rem 0 2rem 0;
+                line-height: 1.6;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+                padding: 1rem 1.5rem;
+            }
+
+            .code-terminal {
+                margin-top: 0;
+                font-size: 0.9rem;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .contact-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-link {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            /* Hero section extra small screens */
+            .hero {
+                padding-top: 60px;
+                min-height: calc(100vh - 60px);
+                padding-bottom: 1rem;
+            }
+
+            .hero-content {
+                gap: 1.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+                line-height: 1.1;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero-text h2 {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+                margin: 0.8rem 0 1.5rem 0;
+                line-height: 1.5;
+            }
+
+            .cta-buttons {
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+            }
+
+            .cta-button {
+                max-width: 200px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-visual {
+                max-width: 350px;
+            }
+
+            .code-terminal {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+
+            .terminal-header {
+                padding: 0.5rem;
+            }
+
+            .code-lines {
+                padding: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .skill-card {
+                padding: 1rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .hero {
+                padding-top: 50px;
+                min-height: calc(100vh - 50px);
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+                line-height: 1.1;
+            }
+
+            .hero-text h2 {
+                font-size: 0.8rem;
+            }
+
+            .hero-text p {
+                font-size: 0.85rem;
+                margin: 0.6rem 0 1.2rem 0;
+            }
+
+            .cta-button {
+                max-width: 180px;
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-visual {
+                max-width: 300px;
+            }
+
+            .code-terminal {
+                font-size: 0.75rem;
+                padding: 0.8rem;
+            }
+
+            .container {
+                padding: 0 8px;
             }
         }
 
@@ -761,6 +1072,11 @@
     <header>
         <nav class="container">
             <div class="logo">Portfolio</div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About me</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -800,16 +1116,32 @@
                                 <span class="line-number">2</span>
                                 &nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"Brando Bryan Medina Rodriguez"</span>,
                             </div>
+                                                            <div class="code-line">
+                                    <span class="line-number">3</span>
+                                    &nbsp;&nbsp;<span class="string">"skills"</span>: [
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">4</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Vue"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">5</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Laravel"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">6</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Flutter"</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">7</span>
+                                    &nbsp;&nbsp;],
+                                </div>
                             <div class="code-line">
-                                <span class="line-number">3</span>
-                                &nbsp;&nbsp;<span class="string">"skills"</span>: [<span class="string">"Vue"</span>, <span class="string">"Laravel"</span>, <span class="string">"Flutter"</span>],
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">4</span>
+                                <span class="line-number">8</span>
                                 &nbsp;&nbsp;<span class="string">"passion"</span>: <span class="string">"innovation"</span>
                             </div>
                             <div class="code-line">
-                                <span class="line-number">5</span>
+                                <span class="line-number">9</span>
                                 };
                             </div>
                         </div>
@@ -1254,6 +1586,31 @@
             const cursorEl = document.querySelector('.cursor');
             cursorEl.style.left = e.clientX - 10 + 'px';
             cursorEl.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         });
 
         // Highlight active navigation

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Desarrollador Fullstack</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         :root {
             --bg-primary: #0a0a0a;
             --bg-secondary: #111111;
@@ -36,13 +37,20 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         /* Touch-friendly improvements */
-        button, a, .cta-button, .contact-link {
+        button,
+        a,
+        .cta-button,
+        .contact-link {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
         }
+
         /* Prevent zoom on input focus on iOS */
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             font-size: 16px;
         }
 
@@ -55,8 +63,8 @@
             height: 100%;
             z-index: -1;
             background: radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
         }
 
         .grid-overlay {
@@ -66,7 +74,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -74,8 +82,13 @@
         }
 
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
         }
 
         .container {
@@ -156,7 +169,8 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px; /* Compensar el header fijo */
+            padding-top: 80px;
+            /* Compensar el header fijo */
         }
 
         .hero-content {
@@ -182,8 +196,13 @@
         }
 
         @keyframes glow {
-            from { filter: drop-shadow(0 0 10px var(--glow-color)); }
-            to { filter: drop-shadow(0 0 20px var(--glow-color)); }
+            from {
+                filter: drop-shadow(0 0 10px var(--glow-color));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px var(--glow-color));
+            }
         }
 
         .hero-text h2 {
@@ -239,9 +258,17 @@
             border-radius: 50%;
         }
 
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27ca3f; }
+        .dot-red {
+            background: #ff5f56;
+        }
+
+        .dot-yellow {
+            background: #ffbd2e;
+        }
+
+        .dot-green {
+            background: #27ca3f;
+        }
 
         .terminal-title {
             font-family: 'JetBrains Mono', monospace;
@@ -264,18 +291,46 @@
             animation: typewriter 0.5s forwards;
         }
 
-        .code-line:nth-child(1) { animation-delay: 0.5s; }
-        .code-line:nth-child(2) { animation-delay: 1s; }
-        .code-line:nth-child(3) { animation-delay: 1.5s; }
-        .code-line:nth-child(4) { animation-delay: 2s; }
-        .code-line:nth-child(5) { animation-delay: 2.5s; }
-        .code-line:nth-child(6) { animation-delay: 3s; }
-        .code-line:nth-child(7) { animation-delay: 3.5s; }
-        .code-line:nth-child(8) { animation-delay: 4s; }
-        .code-line:nth-child(9) { animation-delay: 4.5s; }
+        .code-line:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .code-line:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .code-line:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        .code-line:nth-child(5) {
+            animation-delay: 2.5s;
+        }
+
+        .code-line:nth-child(6) {
+            animation-delay: 3s;
+        }
+
+        .code-line:nth-child(7) {
+            animation-delay: 3.5s;
+        }
+
+        .code-line:nth-child(8) {
+            animation-delay: 4s;
+        }
+
+        .code-line:nth-child(9) {
+            animation-delay: 4.5s;
+        }
 
         @keyframes typewriter {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         .line-number {
@@ -284,10 +339,21 @@
             min-width: 20px;
         }
 
-        .keyword { color: var(--accent-secondary); }
-        .string { color: var(--accent-primary); }
-        .comment { color: var(--text-tertiary); }
-        .function { color: var(--accent-tertiary); }
+        .keyword {
+            color: var(--accent-secondary);
+        }
+
+        .string {
+            color: var(--accent-primary);
+        }
+
+        .comment {
+            color: var(--text-tertiary);
+        }
+
+        .function {
+            color: var(--accent-tertiary);
+        }
 
         .cta-buttons {
             display: flex;
@@ -431,20 +497,31 @@
         /* Skills Section */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .skill-category {
+            display: contents;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 15px;
-            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .skill-category::before {
+        .skill-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -454,57 +531,44 @@
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
         }
 
-        .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--accent-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
         .skill-item:hover {
             background: var(--bg-primary);
             border-color: var(--accent-primary);
-            transform: translateX(5px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .skill-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
             border-radius: 10px;
-            font-size: 1.5rem;
-            margin-right: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .skill-info {
             flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .skill-name {
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .skill-level {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-tertiary);
+            margin-bottom: 1rem;
         }
 
         .skill-progress {
@@ -512,7 +576,6 @@
             height: 4px;
             background: var(--bg-primary);
             border-radius: 2px;
-            margin-top: 0.5rem;
             overflow: hidden;
         }
 
@@ -788,9 +851,8 @@
                 text-align: center;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+            .skills-container {
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .experience-grid {
@@ -902,9 +964,8 @@
                 max-width: 100%;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .projects-grid {
@@ -998,8 +1059,12 @@
                 font-size: 1.8rem;
             }
 
-            .skill-card {
-                padding: 1rem;
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .skill-item {
+                padding: 1.5rem 1rem;
             }
 
             .project-card {
@@ -1065,6 +1130,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="animated-bg"></div>
     <div class="grid-overlay"></div>
@@ -1093,7 +1159,8 @@
                 <div class="hero-text">
                     <h1>Brando Medina Rodriguez</h1>
                     <h2>console.log("Full Stack Developer")</h2>
-                    <p>Ingeniero de Sistemas especializado en crear soluciones tecnológicas innovadoras. Experto en desarrollo web y móvil con enfoque en arquitecturas modernas y escalables.</p>
+                    <p>Ingeniero de Sistemas especializado en crear soluciones tecnológicas innovadoras. Experto en
+                        desarrollo web y móvil con enfoque en arquitecturas modernas y escalables.</p>
                     <div class="cta-buttons">
                         <a href="#projects" class="cta-button cta-primary">View Projects</a>
                         <a href="#contact" class="cta-button cta-secondary">Contact</a>
@@ -1114,31 +1181,33 @@
                             </div>
                             <div class="code-line">
                                 <span class="line-number">2</span>
-                                &nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"Brando Bryan Medina Rodriguez"</span>,
+                                &nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"Brando Bryan
+                                    Medina Rodriguez"</span>,
                             </div>
-                                                            <div class="code-line">
-                                    <span class="line-number">3</span>
-                                    &nbsp;&nbsp;<span class="string">"skills"</span>: [
-                                </div>
-                                <div class="code-line">
-                                    <span class="line-number">4</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Vue"</span>,
-                                </div>
-                                <div class="code-line">
-                                    <span class="line-number">5</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Laravel"</span>,
-                                </div>
-                                <div class="code-line">
-                                    <span class="line-number">6</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Flutter"</span>
-                                </div>
-                                <div class="code-line">
-                                    <span class="line-number">7</span>
-                                    &nbsp;&nbsp;],
-                                </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                &nbsp;&nbsp;<span class="string">"skills"</span>: [
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Vue"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Laravel"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">6</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Flutter"</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">7</span>
+                                &nbsp;&nbsp;],
+                            </div>
                             <div class="code-line">
                                 <span class="line-number">8</span>
-                                &nbsp;&nbsp;<span class="string">"passion"</span>: <span class="string">"innovation"</span>
+                                &nbsp;&nbsp;<span class="string">"passion"</span>: <span
+                                    class="string">"innovation"</span>
                             </div>
                             <div class="code-line">
                                 <span class="line-number">9</span>
@@ -1166,9 +1235,14 @@
                 </div>
                 <div class="about-text">
                     <h3>Developer & Innovation Enthusiast</h3>
-                    <p>Soy un desarrollador fullstack apasionado por la tecnología y la innovación. Mi experiencia en Innovahtec Solution S.A.C me ha permitido trabajar con las tecnologías más actuales del mercado, desarrollando soluciones que marcan la diferencia.</p>
-                    <p>Mi enfoque se centra en crear código limpio, arquitecturas escalables y experiencias de usuario excepcionales. Siempre estoy explorando nuevas tecnologías y metodologías para mantenerme a la vanguardia del desarrollo.</p>
-                    <p>Creo firmemente que la tecnología debe ser una herramienta para resolver problemas reales y crear un impacto positivo en la sociedad.</p>
+                    <p>Soy un desarrollador fullstack apasionado por la tecnología y la innovación. Mi experiencia en
+                        Innovahtec Solution S.A.C me ha permitido trabajar con las tecnologías más actuales del mercado,
+                        desarrollando soluciones que marcan la diferencia.</p>
+                    <p>Mi enfoque se centra en crear código limpio, arquitecturas escalables y experiencias de usuario
+                        excepcionales. Siempre estoy explorando nuevas tecnologías y metodologías para mantenerme a la
+                        vanguardia del desarrollo.</p>
+                    <p>Creo firmemente que la tecnología debe ser una herramienta para resolver problemas reales y crear
+                        un impacto positivo en la sociedad.</p>
                 </div>
             </div>
         </div>
@@ -1179,7 +1253,6 @@
             <h2 class="section-title">Stack Tecnológico</h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>💻 Lenguajes de Programación</h3>
                     <div class="skill-item">
                         <div class="skill-icon">☕</div>
                         <div class="skill-info">
@@ -1230,10 +1303,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🎨 Frontend & Mobile</h3>
                     <div class="skill-item">
                         <div class="skill-icon">💚</div>
                         <div class="skill-info">
@@ -1284,10 +1353,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>⚙️ Backend & DevOps</h3>
                     <div class="skill-item">
                         <div class="skill-icon">🔴</div>
                         <div class="skill-info">
@@ -1308,10 +1373,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🗄️ Bases de Datos</h3>
                     <div class="skill-item">
                         <div class="skill-icon">🐬</div>
                         <div class="skill-info">
@@ -1387,7 +1448,8 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>🏢 Sistema de Gestión Empresarial</h3>
-                    <p class="project-description">Sistema web completo para gestión de recursos empresariales con panel de administración, reportes en tiempo real y dashboard interactivo con métricas avanzadas.</p>
+                    <p class="project-description">Sistema web completo para gestión de recursos empresariales con panel
+                        de administración, reportes en tiempo real y dashboard interactivo con métricas avanzadas.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Vue.js</span>
                         <span class="tech-tag">Laravel</span>
@@ -1398,7 +1460,8 @@
 
                 <div class="project-card">
                     <h3>📱 Aplicación Móvil E-commerce</h3>
-                    <p class="project-description">Aplicación móvil multiplataforma para comercio electrónico con carrito de compras, pasarela de pagos integrada y sistema de notificaciones push.</p>
+                    <p class="project-description">Aplicación móvil multiplataforma para comercio electrónico con
+                        carrito de compras, pasarela de pagos integrada y sistema de notificaciones push.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">Kotlin</span>
@@ -1409,7 +1472,8 @@
 
                 <div class="project-card">
                     <h3>🔗 API REST Microservicios</h3>
-                    <p class="project-description">Desarrollo de API REST escalable con arquitectura de microservicios, documentación completa con Swagger y testing automatizado.</p>
+                    <p class="project-description">Desarrollo de API REST escalable con arquitectura de microservicios,
+                        documentación completa con Swagger y testing automatizado.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
                         <span class="tech-tag">Python</span>
@@ -1420,7 +1484,8 @@
 
                 <div class="project-card">
                     <h3>📊 Dashboard Analítico</h3>
-                    <p class="project-description">Panel de control con visualización de datos en tiempo real, gráficos interactivos y reportes automáticos con inteligencia de negocio.</p>
+                    <p class="project-description">Panel de control con visualización de datos en tiempo real, gráficos
+                        interactivos y reportes automáticos con inteligencia de negocio.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Vue.js</span>
                         <span class="tech-tag">TypeScript</span>
@@ -1431,7 +1496,8 @@
 
                 <div class="project-card">
                     <h3>🚀 Plataforma de Automatización</h3>
-                    <p class="project-description">Sistema de automatización de procesos empresariales con workflows personalizables y integración con APIs externas.</p>
+                    <p class="project-description">Sistema de automatización de procesos empresariales con workflows
+                        personalizables y integración con APIs externas.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Laravel</span>
                         <span class="tech-tag">Vue.js</span>
@@ -1442,7 +1508,8 @@
 
                 <div class="project-card">
                     <h3>🎯 Sistema de Gestión de Proyectos</h3>
-                    <p class="project-description">Herramienta colaborativa para gestión de proyectos con seguimiento de tareas, calendario integrado y reportes de productividad.</p>
+                    <p class="project-description">Herramienta colaborativa para gestión de proyectos con seguimiento de
+                        tareas, calendario integrado y reportes de productividad.</p>
                     <div class="project-tech">
                         <span class="tech-tag">PHP</span>
                         <span class="tech-tag">JavaScript</span>
@@ -1458,7 +1525,8 @@
         <div class="container">
             <h2 class="section-title">Conectemos</h2>
             <div class="contact-container">
-                <p class="contact-text">¿Tienes una idea innovadora? Me encantaría colaborar contigo y convertir tu visión en realidad. Hablemos sobre cómo podemos crear algo extraordinario juntos.</p>
+                <p class="contact-text">¿Tienes una idea innovadora? Me encantaría colaborar contigo y convertir tu
+                    visión en realidad. Hablemos sobre cómo podemos crear algo extraordinario juntos.</p>
                 <div class="contact-links">
                     <a href="mailto:tu.email@ejemplo.com" class="contact-link">
                         <span>📧</span>
@@ -1508,7 +1576,7 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1522,7 +1590,7 @@
         });
 
         // Animación de barras de progreso
-        const skillsObserver = new IntersectionObserver(function(entries) {
+        const skillsObserver = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const progressBars = entry.target.querySelectorAll('.skill-progress-bar');
@@ -1582,7 +1650,7 @@
                 `;
                 document.body.appendChild(cursorElement);
             }
-            
+
             const cursorEl = document.querySelector('.cursor');
             cursorEl.style.left = e.clientX - 10 + 'px';
             cursorEl.style.top = e.clientY - 10 + 'px';
@@ -1617,7 +1685,7 @@
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
@@ -1636,4 +1704,5 @@
         });
     </script>
 </body>
+
 </html>
